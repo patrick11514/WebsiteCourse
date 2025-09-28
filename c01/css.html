@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ukázka CSS</title>
+        <style>
+            p {
+                color: red;
+            }
+
+            .blue {
+                color: blue;
+            }
+
+            #unikátní-id {
+                color: purple;
+            }
+
+            /* Tady tím dokážeme odnastavit nějaké pravidlo :) */
+            div p {
+                color: unset;
+            }
+
+            div.blue {
+                color: blue;
+            }
+
+            div.red p {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p style="color: red">Toto je červený text</p>
+        <p>Toto je taky červené</p>
+        <p>Bohužel tento taky :)</p>
+        <p class="blue">Ale tento je modrý :)</p>
+        <p id="unikátní-id">A tento fialový</p>
+        <p id="unikátní-id">A tento fialový</p>
+
+        <hr />
+
+        <div>
+            Tady nic není nastylováno
+            <p>Tady taky ne</p>
+        </div>
+        <div class="blue">
+            Ale tento je modrý :)
+            <p>Tady taky ne</p>
+        </div>
+        <div class="red">
+            Tady nic není nastylováno
+            <p>Ale tento je červený :)</p>
+        </div>
+    </body>
+</html>
