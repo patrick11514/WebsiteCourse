@@ -1,57 +1,195 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Display & Position</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 16px; }
-    h2 { margin-top: 2rem; }
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Display + Position + Z-Index</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
 
-    /* Display demo */
-    .demo-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; align-items: center; }
-    .block, .inline, .inline-block {
-      border: 2px dashed #999; padding: 6px 10px; background:#fff; 
-    }
-    .block { display: block; width: 100%; }
-    .inline { display: inline; }
-    .inline-block { display: inline-block; width: 160px; }
+            #block {
+                display: block;
+            }
 
-    /* Position demo */
-    .pos-wrap { position: relative; border:1px solid #ddd; height: 160px; margin-top: 12px; background:#f9fafb; }
-    .pos-box { width: 96px; height: 64px; display:flex; align-items:center; justify-content:center; border-radius:6px; }
-    .static { background:#d1fae5; }
-    .relative { position: relative; top: 8px; left: 8px; background:#bfdbfe; }
-    .abs { position: absolute; top: 16px; right: 16px; background:#fde68a; }
-    .fixed { position: fixed; bottom: 12px; right: 12px; background:#fca5a5; }
-    .sticky-head { position: sticky; top: 0; background:#fff; border-bottom:1px solid #eee; padding: 8px; }
+            .inline {
+                display: inline;
+            }
 
-    .note { font-size: 0.9rem; color:#444; }
-  </style>
-</head>
-<body>
-  <div class="sticky-head">Sticky header – drží se nahoře při scrollu</div>
+            .width {
+                width: 120px;
+                background-color: pink;
+            }
 
-  <h2>Display</h2>
-  <p class="note">`block` zabere celou šířku, `inline` respektuje šířku obsahu, `inline-block` je kombinace (lze mu dát šířku/výšku).</p>
-  <div class="demo-row">
-    <div class="block">block</div>
-    <span class="inline">inline A</span>
-    <span class="inline">inline B</span>
-    <div class="inline-block">inline-block</div>
-  </div>
+            .inline-block {
+                display: inline-block;
+            }
 
-  <h2>Position</h2>
-  <p class="note">`absolute` se bere vůči nejbližšímu rodiči s `position: relative` (jinak k oknu). `fixed` je k oknu vždy, `sticky` přepíná mezi statickým a „přilepeným“.</p>
-  <div class="pos-wrap">
-    <div class="pos-box static">static</div>
-    <div class="pos-box relative">relative</div>
-    <div class="pos-box abs">absolute</div>
-  </div>
-  <p>Scrolluj kousek dolů a sleduj „fixed“ vpravo dole.</p>
+            .hidden {
+                display: none;
+                height: 100px;
+                background-color: orange;
+            }
 
-  <div style="height:1000px"></div>
-  <div class="pos-box fixed">fixed</div>
-</body>
+            .relative {
+                position: relative;
+            }
+
+            .absolute {
+                position: absolute;
+            }
+
+            .sticky {
+                position: sticky;
+                top: 0;
+            }
+
+            .fixed {
+                position: fixed;
+            }
+
+            .top-left {
+                top: 10px;
+                left: 20px;
+            }
+
+            .bottom {
+                bottom: 10px;
+                right: 20px;
+            }
+
+            .box {
+                width: 200px;
+                aspect-ratio: 1 / 1;
+                background-color: green;
+            }
+
+            .top-right {
+                top: 0;
+                right: 0;
+                background-color: yellow;
+                border-radius: 9999px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Block automaticky</div>
+        <div id="block">Block manuálně</div>
+        <div class="inline width">První</div>
+        <div class="inline width">Druhý</div>
+        <hr />
+        <div>
+            <span class="width">První </span><span class="width">Druhý</span>
+            <span style="display: block">Třetí</span>
+        </div>
+        <hr />
+        <div class="inline-block width">První</div>
+        <div class="inline-block width">Druhý</div>
+        <div>
+            <span class="width inline-block">První </span>
+            <span class="width">Druhý</span>
+            <span style="display: block">Třetí</span>
+        </div>
+        <hr />
+        <div class="relative top-left">Test</div>
+        <div class="absolute bottom">Test2</div>
+        <div class="relative box">
+            Tady je relative
+            <div class="absolute bottom">Test3</div>
+        </div>
+        <div class="sticky">Toto se pak přilepí :)</div>
+        <div class="fixed top-right">Toto je fixed i při scrollu</div>
+        <div
+            style="
+                height: 2000px;
+                background-image: url('https://i.redd.it/lwkoiuqw75w31.png');
+                background-repeat: no-repeat;
+            "
+        ></div>
+        Před
+        <div class="hidden">AAA</div>
+        PO
+
+        <div
+            style="
+                width: 100vw;
+                height: 100vh;
+                background-color: blue;
+                position: relative;
+            "
+        >
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates
+            fugit omnis exercitationem cumque officiis nostrum reiciendis
+            quisquam assumenda sit quas, nulla officia, nihil hic quasi alias
+            consequatur veritatis. Recusandae, modi. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Architecto obcaecati ipsam, amet
+            dolores placeat illo vel laboriosam quis temporibus quaerat
+            inventore voluptatibus? Veritatis voluptatum libero ullam excepturi
+            reiciendis et alias? Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Ipsum aliquam excepturi, similique in error
+            perferendis? Voluptatum id iure voluptate minus, sapiente aliquam
+            distinctio necessitatibus, qui reiciendis ratione alias nulla est.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            cumque facilis, ex molestiae eum quam delectus eius quibusdam vitae
+            fugiat numquam tempore? Neque amet alias assumenda doloremque
+            delectus fugiat reprehenderit. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Iusto, totam. Alias expedita tempore
+            non debitis perferendis facilis architecto. Fugit magni eius
+            numquam, obcaecati maiores illum iste doloribus vitae neque. Soluta.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            optio dolorum ratione, quo nobis expedita consectetur debitis quae
+            sed neque perferendis. Ab quisquam cupiditate a aspernatur, nisi
+            debitis officiis labore.
+
+            <div
+                style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 99;
+                "
+            >
+                <div
+                    style="
+                        border: black solid 2px;
+                        border-radius: 0.75rem;
+                        padding: 1rem;
+                        background-color: white;
+                        width: 25%;
+                        height: 25%;
+                    "
+                >
+                    Nějaký popup
+                </div>
+            </div>
+
+            <div style="position: relative; width: 50%; height: 50%">
+                <img
+                    style="width: 100%; height: 100%; object-fit: cover"
+                    src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                />
+                <div
+                    style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        color: white;
+                        background-color: rgba(255, 0, 0, 0.8);
+                    "
+                >
+                    LOOL
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

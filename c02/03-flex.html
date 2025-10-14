@@ -1,69 +1,205 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flexbox</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 16px; }
-    .toolbar {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px solid #e5e7eb;
-      padding: 8px 12px;
-      border-radius: 8px;
-      background:#fff;
-    }
-    .btn { padding: 8px 12px; border:1px solid #e5e7eb; border-radius:6px; background:#f8fafc; }
-    .grow { flex: 1; }
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flexbox</title>
+        <style>
+            h1 {
+                font-size: unset;
+                text-decoration: underline;
+                font-weight: bold;
+                padding: 0;
+                margin: 0;
+                margin-top: 50px;
+            }
 
-    .cards {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .card {
-      flex: 1 1 220px; /* grow, shrink, basis */
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 12px;
-      background:#fff;
-      min-width: 200px;
-    }
-    .center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 120px;
-      border: 1px dashed #cbd5e1;
-      border-radius: 6px;
-    }
-  </style>
-</head>
-<body>
-  <div class="toolbar">
-    <button class="btn">Zpět</button>
-    <input class="grow" placeholder="Hledat…" />
-    <button class="btn">Uložit</button>
-  </div>
+            body > div {
+                background-color: rgba(255, 192, 203, 0.11);
+            }
 
-  <section class="cards">
-    <article class="card">
-      <h3>Karta 1</h3>
-      <div class="center">vertikální + horizontální centrování</div>
-    </article>
-    <article class="card">
-      <h3>Karta 2</h3>
-      <p>`flex: 1 1 220px` → pružné karty se zalamují.</p>
-    </article>
-    <article class="card">
-      <h3>Karta 3</h3>
-      <p>Na úzké obrazovce budou pod sebou.</p>
-    </article>
-  </section>
-</body>
+            div > div {
+                border: solid black 1px;
+                border-radius: 0.5rem;
+                padding: 0.25rem;
+                height: 25px;
+            }
+
+            .big > div {
+                min-width: 512px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Flex s span:</h1>
+        <div style="display: flex">
+            <span>první</span>
+            <span>druhý</span>
+            <span>třetí</span>
+            <span>čtvrtý</span>
+        </div>
+
+        <h1>Flex s div:</h1>
+        <div style="display: flex">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex column:</h1>
+        <div style="display: flex; flex-direction: column">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + flex-start</h1>
+        <div style="display: flex; justify-content: flex-start">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + flex-start + reverse</h1>
+        <div
+            style="
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-start;
+            "
+        >
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + start</h1>
+        <div style="display: flex; justify-content: start">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + start + reverse</h1>
+        <div
+            style="
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: start;
+            "
+        >
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + center</h1>
+        <div style="display: flex; justify-content: center">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + space-between</h1>
+        <div style="display: flex; justify-content: space-between">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + space-around</h1>
+        <div style="display: flex; justify-content: space-around">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + space-evenly</h1>
+        <div style="display: flex; justify-content: space-evenly">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + align-items bez</h1>
+        <div style="display: flex; height: 150px">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + align-items center</h1>
+        <div style="display: flex; height: 150px; align-items: center">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + align-items center + justify-content</h1>
+        <div
+            style="
+                display: flex;
+                height: 150px;
+                align-items: center;
+                justify-content: space-evenly;
+            "
+        >
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + gap</h1>
+        <div style="display: flex; gap: 10px">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + bez wrap</h1>
+        <div class="big" style="display: flex">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + wrap</h1>
+        <div class="big" style="display: flex; flex-wrap: wrap">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + wrap reverse</h1>
+        <div class="big" style="display: flex; flex-wrap: wrap-reverse">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+
+        <h1>Flex + wrap + gap</h1>
+        <div class="big" style="display: flex; flex-wrap: wrap; gap: 50px">
+            <div>první</div>
+            <div>druhý</div>
+            <div>třetí</div>
+            <div>čtvrtý</div>
+        </div>
+    </body>
 </html>
