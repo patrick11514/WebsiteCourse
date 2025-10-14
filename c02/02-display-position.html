@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Display & Position</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 16px; }
+    h2 { margin-top: 2rem; }
+
+    /* Display demo */
+    .demo-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; align-items: center; }
+    .block, .inline, .inline-block {
+      border: 2px dashed #999; padding: 6px 10px; background:#fff; 
+    }
+    .block { display: block; width: 100%; }
+    .inline { display: inline; }
+    .inline-block { display: inline-block; width: 160px; }
+
+    /* Position demo */
+    .pos-wrap { position: relative; border:1px solid #ddd; height: 160px; margin-top: 12px; background:#f9fafb; }
+    .pos-box { width: 96px; height: 64px; display:flex; align-items:center; justify-content:center; border-radius:6px; }
+    .static { background:#d1fae5; }
+    .relative { position: relative; top: 8px; left: 8px; background:#bfdbfe; }
+    .abs { position: absolute; top: 16px; right: 16px; background:#fde68a; }
+    .fixed { position: fixed; bottom: 12px; right: 12px; background:#fca5a5; }
+    .sticky-head { position: sticky; top: 0; background:#fff; border-bottom:1px solid #eee; padding: 8px; }
+
+    .note { font-size: 0.9rem; color:#444; }
+  </style>
+</head>
+<body>
+  <div class="sticky-head">Sticky header – drží se nahoře při scrollu</div>
+
+  <h2>Display</h2>
+  <p class="note">`block` zabere celou šířku, `inline` respektuje šířku obsahu, `inline-block` je kombinace (lze mu dát šířku/výšku).</p>
+  <div class="demo-row">
+    <div class="block">block</div>
+    <span class="inline">inline A</span>
+    <span class="inline">inline B</span>
+    <div class="inline-block">inline-block</div>
+  </div>
+
+  <h2>Position</h2>
+  <p class="note">`absolute` se bere vůči nejbližšímu rodiči s `position: relative` (jinak k oknu). `fixed` je k oknu vždy, `sticky` přepíná mezi statickým a „přilepeným“.</p>
+  <div class="pos-wrap">
+    <div class="pos-box static">static</div>
+    <div class="pos-box relative">relative</div>
+    <div class="pos-box abs">absolute</div>
+  </div>
+  <p>Scrolluj kousek dolů a sleduj „fixed“ vpravo dole.</p>
+
+  <div style="height:1000px"></div>
+  <div class="pos-box fixed">fixed</div>
+</body>
+</html>

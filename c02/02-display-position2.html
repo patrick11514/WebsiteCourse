@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #block {
+                display: block;
+            }
+
+            .inline {
+                display: inline;
+            }
+
+            .width {
+                width: 120px;
+                background-color: pink;
+            }
+
+            .inline-block {
+                display: inline-block;
+            }
+
+            .relative {
+                position: relative;
+            }
+
+            .absolute {
+                position: absolute;
+            }
+
+            .sticky {
+                position: sticky;
+                top: 0;
+            }
+
+            .fixed {
+                position: fixed;
+            }
+
+            .top-left {
+                top: 10px;
+                left: 20px;
+            }
+
+            .bottom {
+                bottom: 10px;
+                right: 20px;
+            }
+
+            .box {
+                width: 200px;
+                aspect-ratio: 1 / 1;
+                background-color: green;
+            }
+
+            .top-right {
+                top: 0;
+                right: 0;
+                background-color: yellow;
+                border-radius: 9999px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Block automaticky</div>
+        <div id="block">Block manuálně</div>
+        <div class="inline width">První</div>
+        <div class="inline width">Druhý</div>
+        <hr />
+        <div>
+            <span class="width">První </span><span class="width">Druhý</span>
+            <span style="display: block">Třetí</span>
+        </div>
+        <hr />
+        <div class="inline-block width">První</div>
+        <div class="inline-block width">Druhý</div>
+        <div>
+            <span class="width inline-block">První </span>
+            <span class="width">Druhý</span>
+            <span style="display: block">Třetí</span>
+        </div>
+        <hr />
+        <div class="relative top-left">Test</div>
+        <div class="absolute bottom">Test2</div>
+        <div class="relative box">
+            Tady je relative
+            <div class="absolute bottom">Test3</div>
+        </div>
+        <div class="sticky">Toto se pak přilepí :)</div>
+        <div class="fixed top-right">Toto je fixed i při scrollu</div>
+        <div
+            style="
+                height: 2000px;
+                background-image: url('https://i.redd.it/lwkoiuqw75w31.png');
+                background-repeat: no-repeat;
+            "
+        ></div>
+    </body>
+</html>

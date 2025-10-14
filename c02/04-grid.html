@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Grid</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 16px; }
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .cell {
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 80px;
+    }
+    .hero {
+      grid-column: span 3;
+      min-height: 120px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <section class="grid">
+    <div class="cell hero">Hero (span přes celou šířku)</div>
+    <div class="cell">A</div>
+    <div class="cell">B</div>
+    <div class="cell">C</div>
+    <div class="cell">D</div>
+    <div class="cell">E</div>
+  </section>
+</body>
+</html>
